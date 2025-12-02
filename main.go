@@ -11,8 +11,8 @@ func main() {
 	commandsString := flag.String("commands", "", `-commands="MMRMM"`)
 	flag.Parse()
 
-	marsRover := &MarsRover{}
-	position := marsRover.Run(*commandsString, *marsWidth, *marsHeight)
+	marsRover := NewMarsRover(*marsWidth, *marsHeight)
+	position := marsRover.Run(*commandsString)
 
 	fmt.Println("Rover final position:", position.X, position.Y, string(position.Direction))
 }

@@ -53,9 +53,8 @@ func TestMarsRover_Run(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			marsRover := &MarsRover{}
-
-			position := marsRover.Run(tt.commands, 5, 5)
+			marsRover := NewMarsRover(5, 5)
+			position := marsRover.Run(tt.commands)
 
 			assert.Equal(t, tt.expectedPosition, position)
 		})
